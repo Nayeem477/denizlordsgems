@@ -12,7 +12,6 @@ function openTab(tabName) {
     document.getElementById(tabName).classList.add('active');
     event.target.classList.add('active');
 
-    // Populate content based on tab
     if (tabName === 'MonsterHunt') {
         const monsterHuntItems = [
             { name: 'Monster Hunt ATK Boost 25%', cost: 1000 },
@@ -27,7 +26,7 @@ function openTab(tabName) {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.name}</td>
-                <td>${item.cost}</td>
+                <td>${item.cost.toLocaleString()}</td>
                 <td><input type="number" min="0" onchange="updateWishlist('${item.name}', ${item.cost}, this.value)"></td>
             `;
             tbody.appendChild(row);
@@ -49,7 +48,7 @@ function openTab(tabName) {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.name}</td>
-                <td>${item.cost}</td>
+                <td>${item.cost.toLocaleString()}</td>
                 <td><input type="number" min="0" onchange="updateWishlist('${item.name}', ${item.cost}, this.value)"></td>
             `;
             tbody.appendChild(row);
@@ -83,7 +82,7 @@ function openTab(tabName) {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.name}</td>
-                <td>${item.cost}</td>
+                <td>${item.cost.toLocaleString()}</td>
                 <td><input type="number" min="0" onchange="updateWishlist('${item.name}', ${item.cost}, this.value)"></td>
             `;
             tbody.appendChild(row);
@@ -109,7 +108,7 @@ function openTab(tabName) {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.name}</td>
-                <td>${item.cost}</td>
+                <td>${item.cost.toLocaleString()}</td>
                 <td><input type="number" min="0" onchange="updateWishlist('${item.name}', ${item.cost}, this.value)"></td>
             `;
             tbody.appendChild(row);
@@ -137,7 +136,7 @@ function openTab(tabName) {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.name}</td>
-                <td>${item.cost}</td>
+                <td>${item.cost.toLocaleString()}</td>
                 <td><input type="number" min="0" onchange="updateWishlist('${item.name}', ${item.cost}, this.value)"></td>
             `;
             tbody.appendChild(row);
@@ -162,7 +161,7 @@ function openTab(tabName) {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.name}</td>
-                <td>${item.cost}</td>
+                <td>${item.cost.toLocaleString()}</td>
                 <td><input type="number" min="0" onchange="updateWishlist('${item.name}', ${item.cost}, this.value)"></td>
             `;
             tbody.appendChild(row);
@@ -183,7 +182,7 @@ function openTab(tabName) {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.name}</td>
-                <td>${item.cost}</td>
+                <td>${item.cost.toLocaleString()}</td>
                 <td><input type="number" min="0" onchange="updateWishlist('${item.name}', ${item.cost}, this.value)"></td>
             `;
             tbody.appendChild(row);
@@ -210,7 +209,7 @@ function openTab(tabName) {
             const row = document.createElement('tr');
             row.innerHTML = `
                 <td>${item.name}</td>
-                <td>${item.cost}</td>
+                <td>${item.cost.toLocaleString()}</td>
                 <td><input type="number" min="0" onchange="updateWishlist('${item.name}', ${item.cost}, this.value)"></td>
             `;
             tbody.appendChild(row);
@@ -221,7 +220,7 @@ function openTab(tabName) {
 function updateWishlist(itemName, gemCost, quantity) {
     const wishlist = document.getElementById('wishlistItems');
     const totalGems = document.getElementById('totalGems');
-    let total = parseInt(totalGems.textContent) || 0;
+    let total = parseInt(totalGems.textContent.replace(/,/g, '')) || 0;
 
     if (quantity === '0' || quantity === '') {
         const li = document.querySelector(`#wishlistItems li[data-item="${itemName}"]`);
@@ -234,19 +233,19 @@ function updateWishlist(itemName, gemCost, quantity) {
         if (li) {
             total -= li.dataset.cost * (parseInt(li.dataset.quantity) || 0);
             li.dataset.quantity = quantity;
-            li.textContent = `${itemName} x${quantity} - ${gemCost * quantity} Gems`;
+            li.textContent = `${itemName} x${quantity} - ${(gemCost * quantity).toLocaleString()} Gems`;
             total += gemCost * quantity;
         } else {
             const newLi = document.createElement('li');
             newLi.dataset.item = itemName;
             newLi.dataset.cost = gemCost;
             newLi.dataset.quantity = quantity;
-            newLi.textContent = `${itemName} x${quantity} - ${gemCost * quantity} Gems`;
+            newLi.textContent = `${itemName} x${quantity} - ${(gemCost * quantity).toLocaleString()} Gems`;
             wishlist.appendChild(newLi);
             total += gemCost * quantity;
         }
     }
-    totalGems.textContent = total;
+    totalGems.textContent = total.toLocaleString();
 }
 
 // Initialize with MonsterHunt tab active
