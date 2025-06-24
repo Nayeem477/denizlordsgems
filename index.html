@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gem Calculator</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="header">
+        <h2>( Lord’s Gems Calculator Providing service since 2021 )</h2>
+    </div>
+    <h1>Gem Calculator</h1>
+    <div class="tab-container">
+        <button class="tab active" onclick="openTab('MonsterHunt')">Monster Hunt</button>
+        <button class="tab" onclick="openTab('SpeedUps')">Speed Ups</button>
+        <button class="tab" onclick="openTab('Combat')">Combat</button>
+        <button class="tab" onclick="openTab('PlayerExp')">Player EXP & Talents</button>
+        <button class="tab" onclick="openTab('Resources')">Resources</button>
+        <button class="tab" onclick="openTab('ChestsTools')">Chests & Tools</button>
+        <button class="tab" onclick="openTab('OtherItems')">Other Items</button>
+        <button class="tab" onclick="openTab('MergingAnima')">Merging & Anima</button>
+    </div>
+
+    <section id="MonsterHunt" class="tab-content active">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Gem Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="monsterHuntItems"></tbody>
+        </table>
+    </section>
+
+    <section id="SpeedUps" class="tab-content" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Gem Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="speedUpItems"></tbody>
+        </table>
+    </section>
+
+    <section id="Combat" class="tab-content" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Gem Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="combatItems"></tbody>
+        </table>
+    </section>
+
+    <section id="PlayerExp" class="tab-content" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Gem Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="playerExpItems"></tbody>
+        </table>
+    </section>
+
+    <section id="Resources" class="tab-content" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Gem Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="resourceItems"></tbody>
+        </table>
+    </section>
+
+    <section id="ChestsTools" class="tab-content" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Gem Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="chestsToolsItems"></tbody>
+        </table>
+    </section>
+
+    <section id="OtherItems" class="tab-content" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Gem Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="otherItems"></tbody>
+        </table>
+    </section>
+
+    <section id="MergingAnima" class="tab-content" style="display: none;">
+        <table>
+            <thead>
+                <tr>
+                    <th>Item Name</th>
+                    <th>Gem Cost</th>
+                    <th>Quantity</th>
+                </tr>
+            </thead>
+            <tbody id="mergingAnimaItems"></tbody>
+        </table>
+    </section>
+
+    <h2>Wishlist</h2>
+    <ul id="wishlistItems"></ul>
+    <p>Total Gems: <span id="totalGems">0</span></p>
+
+    <div class="whatsapp-box">
+        <a href="https://wa.me/1234567890" target="_blank" class="whatsapp-button">Order on WhatsApp</a>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
